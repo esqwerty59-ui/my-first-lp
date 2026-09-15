@@ -138,6 +138,13 @@ button {
   transform-origin: left;
 }
 
+/* 明るい背景の上で使うボタン */
+.btn--forest {
+  background: var(--color-forest);
+  border-color: var(--color-forest);
+  color: #fff;
+}
+
 /* ========================================
    Header
 ======================================== */
@@ -783,6 +790,98 @@ button {
 @keyframes pulse {
   70% { box-shadow: 0 0 0 10px rgba(93, 155, 90, 0); }
   100% { box-shadow: 0 0 0 0 rgba(93, 155, 90, 0); }
+}
+
+/* ========================================
+   Contact
+======================================== */
+.contact {
+  background: var(--color-cream);
+}
+
+.contact__lead {
+  margin-top: 16px;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+}
+
+.form {
+  width: min(680px, 100%);
+  margin-inline: auto;
+  padding: clamp(28px, 5vw, 56px);
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 40px -28px rgba(47, 62, 47, 0.35);
+}
+
+.form__field + .form__field {
+  margin-top: 24px;
+}
+
+.form__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-forest);
+}
+
+.form__required {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--color-caramel);
+  color: #fff;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  font: inherit;
+  color: var(--color-text);
+  background: #fff;
+  border: 1px solid rgba(47, 62, 47, 0.15);
+  border-radius: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form__input::placeholder {
+  color: #b3aaa1;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-moss);
+  box-shadow: 0 0 0 3px rgba(107, 127, 90, 0.2);
+}
+
+.form__textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.form__input.is-invalid {
+  border-color: #b5695a;
+  box-shadow: 0 0 0 3px rgba(181, 105, 90, 0.15);
+}
+
+.form__error {
+  min-height: 1.6em;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #b5695a;
+}
+
+.form__submit {
+  margin-top: 16px;
+  text-align: center;
 }
 
 /* ========================================
