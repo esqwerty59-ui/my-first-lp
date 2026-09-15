@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taro Yamada | 自己紹介</title>
+  <meta name="description" content="山田 太郎の自己紹介ページです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <!-- ヒーロー -->
+    <section class="hero">
+      <div class="avatar" aria-hidden="true">
+        <span class="avatar__face"></span>
+      </div>
+      <h1 class="hero__name">
+        山田 太郎
+        <span class="hero__name-en">Taro Yamada</span>
+      </h1>
+      <p class="hero__catch">つくることが好きな、駆け出しWebエンジニアです。</p>
+    </section>
+
+    <!-- スキル・好きなこと -->
+    <section class="skills reveal">
+      <h2 class="section__title">Skills &amp; Favorites</h2>
+
+      <h3 class="section__sub">スキル</h3>
+      <ul class="tags">
+        <li class="tag">HTML</li>
+        <li class="tag">CSS</li>
+        <li class="tag">JavaScript</li>
+        <li class="tag">Git</li>
+        <li class="tag">Figma</li>
+      </ul>
+
+      <h3 class="section__sub">好きなこと</h3>
+      <ul class="cards">
+        <li class="card card--pink reveal">
+          <span class="card__icon" aria-hidden="true">☕</span>
+          <p class="card__title">コーヒー</p>
+          <p class="card__text">朝の一杯はハンドドリップで。お気に入りのカフェ巡りも好きです。</p>
+        </li>
+        <li class="card card--blue reveal">
+          <span class="card__icon" aria-hidden="true">📷</span>
+          <p class="card__title">写真</p>
+          <p class="card__text">休日はカメラを持って散歩。街の何気ない景色を撮っています。</p>
+        </li>
+        <li class="card card--mint reveal">
+          <span class="card__icon" aria-hidden="true">🏕</span>
+          <p class="card__title">キャンプ</p>
+          <p class="card__text">焚き火を眺めながら、のんびり過ごす時間が好きです。</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Taro Yamada</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
