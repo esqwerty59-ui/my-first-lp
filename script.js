@@ -182,6 +182,55 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateStatus, 60 * 1000);
 
   /* ----------------------------------------
+     お問い合わせフォームのバリデーション
+  ---------------------------------------- */
+  const contactForm = document.getElementById('contact-form');
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validators = {
+    name: (value) => (value ? '' : 'お名前を入力してください'),
+    email: (value) => {
+      if (!value) return 'メールアドレスを入力してください';
+      if (!EMAIL_PATTERN.test(value)) return 'メールアドレスの形式が正しくありません';
+      return '';
+    },
+    message: (value) => (value ? '' : 'お問い合わせ内容を入力してください'),
+  };
+
+  const validateField = (field) => {
+    const message = validators[field.name](field.value.trim());
+    const error = document.getElementById(field.getAttribute('aria-describedby'));
+    field.classList.toggle('is-invalid', Boolean(message));
+    field.setAttribute('aria-invalid', String(Boolean(message)));
+    error.textContent = message;
+    return !message;
+  };
+
+  const fields = Object.keys(validators).map((name) => contactForm.elements[name]);
+
+  fields.forEach((field) => {
+    field.addEventListener('blur', () => validateField(field));
+    // 一度エラーになった欄は、入力しながらエラーを更新する
+    field.addEventListener('input', () => {
+      if (field.classList.contains('is-invalid')) validateField(field);
+    });
+  });
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const results = fields.map(validateField);
+    const firstInvalid = fields[results.indexOf(false)];
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
+
+    alert('送信しました');
+    contactForm.reset();
+  });
+
+  /* ----------------------------------------
      フッターの年
   ---------------------------------------- */
   document.getElementById('year').textContent = new Date().getFullYear();
